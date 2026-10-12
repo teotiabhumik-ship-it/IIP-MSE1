@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus event management </title>
+    <style>
+        .nav-bar {
+            display: flex;
+            gap: 16px;
+            padding: 12px;
+            background-color: #ffffff;
+        }
+        #nav-bar a {
+            color: #164f78;
+            font-weight: bold;
+        }
+        #card{
+            border: 1px solid #000000;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            background-color: #f38a8a;
+    
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #59b8ec;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+<body>
+    <nav id="nav-bar" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="events.html">Events</a>
+        <a href="registraion.html">Registration</a>
+    </nav>
+    <div>
+        <h1 id="heading">Campus Event Management</h1>
+        <p>Welcome to the Campus Event Management System!</p>  
+        
+  
+        <h2>upcoming events</h2>
+    </div>
+    <input type="button" value="change heading" id="change-heading-btn">
+
+    <div id="events-container">
+        <div id="card">
+            <h3>Event 1</h3>
+            <p>Date: 2024-06-15</p>
+            <p>Location: Auditorium</p>
+        </div>
+        <div id="card">
+            <h3>Event 2</h3>
+            <p>Date: 2024-06-20</p>
+            <p>Location: Sports Complex</p>
+        </div>
+        <div id="card">
+            <h3>Event 3</h3>
+            <p>Date: 2024-06-25</p>
+            <p>Location: Library</p>
+        </div>
+
+    </div>
+    <input style
+     type="button" value="hide events" id="hide-events-btn">
+     <br>
+     <input type="button" value="change color" id="change-color-btn">
+<script>
+        document.getElementById("hide-events-btn").addEventListener("click", function() {
+            var eventsContainer = document.getElementById("events-container");
+            if (eventsContainer.style.display === "none") {
+                eventsContainer.style.display = "block";
+                this.value = "hide events";
+            } else {
+                eventsContainer.style.display = "none";
+                this.value = "show events";
+            }
+        });
+       
+        document.getElementById("change-heading-btn").addEventListener("click", function() {
+            var heading = document.getElementById("heading");
+            heading.textContent = "new heading";
+        });
+
+        document.getElementById("change-color-btn").addEventListener("click", function() {
+            var eventsContainer = document.getElementById("card");
+            eventsContainer.style.backgroundColor = "red";
+        });
+        
+    </script>
+    
+</body>
+</html>

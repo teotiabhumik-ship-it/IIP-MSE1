@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #164f78;
+            color: #000000;
+        }
+        .nav-bar {
+            display: flex;
+            gap: 16px;
+            padding: 12px;
+            background-color: #f2f7fa;
+        }
+        .nav-bar a {
+            color: #164f78;
+            font-weight: bold;
+        }
+        .card {
+            border: px solid black;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 300px;
+            background-color: #ef5a5a;
+            border-radius: 5px;
+        }
+        .container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px dashed gray;
+            width: 320px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+    <h1>College Events</h1>
+    <p>Welcome to the campus events page. Check out the upcoming events below!</p>
+    <nav class="nav-bar" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="events.html" aria-current="page">Events</a>
+        <a href="registraion.html">Registration</a>
+    </nav>
+
+    <h2>Upcoming Events</h2>
+
+    <div class="card" id="card1" >
+        <h3>Tech Fest 2026</h3>
+        <p><strong>Date:</strong> November 15, 2026</p>
+        <p><strong>Venue:</strong> Main Auditorium</p>
+        <p><strong>Description:</strong> An annual technology exhibition featuring coding competitions, robotics, and guest speakers.</p>
+    </div>
+
+    <div class="card" id="card2">
+        <h3>Annual Sports Meet</h3>
+        <p><strong>Date:</strong> November 22, 2026</p>
+        <p><strong>Venue:</strong> College Sports Ground</p>
+        <p><strong>Description:</strong> Track and field events, football matches, and basketball tournaments for all students.</p>
+    </div>
+
+    <div class="card" id="card3">
+        <h3>Cultural Night</h3>
+        <p><strong>Date:</strong> December 5, 2026</p>
+        <p><strong>Venue:</strong> public hall</p>
+        <p><strong>Description:</strong> Music, dance, drama performances, and food stalls organized by the student council.</p>
+    </div>
+
+    <div class="card" id="card4">
+        <h3>Alumni Meet</h3>
+        <p><strong>Date:</strong> December 18, 2026</p>
+        <p><strong>Venue:</strong> Seminar Hall </p>
+        <p><strong>Description:</strong> A networking event welcoming alumni back to campus to share experiences and career advice.</p>
+    </div>
+
+    <hr>
+    <h2>Modify Event Card</h2>
+    <button onclick="modifyCard()">Change First Card Appearance</button>
+
+    <hr>
+    <h2>Add New Event Name</h2>
+    <label for="eventNameInput">Event Name: </label>
+    <input type="text" id="eventNameInput">
+    <br><br>
+    <button onclick="addEventName()">Add Event</button>
+
+    <div class="container">
+        <h3>Submitted Event:</h3>
+        <div id="displayArea">No event added yet.</div>
+        <p id="confirmationMessage" style="color: green;"></p>
+    </div>
+
+    <script>
+        function modifyCard() {
+            var firstCard = document.getElementById("card1");
+            firstCard.style.backgroundColor = "yellow";
+            firstCard.style.border = "2px solid red";
+            
+            var cardTitle = firstCard.getElementsByTagName("h3")[0];
+            cardTitle.textContent = "Tech Fest 2026 (UPDATED)";
+        }
+
+        function addEventName() {
+            var inputVal = document.getElementById("eventNameInput").value;
+            var displayArea = document.getElementById("displayArea");
+            var confirmationMsg = document.getElementById("confirmationMessage");
+
+            if (inputVal === "") {
+                confirmationMsg.style.color = "red";
+                confirmationMsg.innerHTML = "Please enter a valid event name!";
+                displayArea.innerHTML = "No event added yet.";
+            } else {
+                confirmationMsg.style.color = "green";
+                confirmationMsg.innerHTML = "Success! Event submitted.";
+                displayArea.innerHTML = "New Event: " + inputVal;
+            }
+        }
+
+    </script>
+
+</body>
+</html>
